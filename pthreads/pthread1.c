@@ -10,7 +10,7 @@ int main()
      pthread_t thread1, thread2;
      char *message1 = "Thread 1";
      char *message2 = "Thread 2";
-     int  iret1, iret2;
+     int  iret1 = -1, iret2 = -1;
 
     /* Create independent threads each of which will execute function */
 
@@ -21,6 +21,8 @@ int main()
      /* wait we run the risk of executing an exit which will terminate   */
      /* the process and all threads before the threads have completed.   */
 
+     /*Pthread_Join: Suspend calling thread until requested thread finishes
+      * execution unless already finished.. */
      pthread_join( thread1, NULL);
      pthread_join( thread2, NULL);
 
